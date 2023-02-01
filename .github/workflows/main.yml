@@ -23,6 +23,5 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: 'us-east-1'
-          aws-bucket: ${{ secrets.AWS_S3_BUCKET }}
-          file-path: "./build"
-          destination-dir: "mital-demo-2"
+      - name: Deploy to S3 bucket
+        run: aws s3 sync ./build/ s3://mital-demo-2 --delete
