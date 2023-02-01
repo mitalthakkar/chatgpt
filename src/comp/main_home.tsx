@@ -88,7 +88,7 @@ function User() {
   };
   return (
     <React.Fragment>
-      <h5 className="title">Product Catalog</h5>
+      <h5 className="title">mital action test</h5>
       <div className="buttons">
         <button
           className={isTableView ? "main-btn-active" : "main-btn"}
