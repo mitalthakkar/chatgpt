@@ -18,7 +18,7 @@ jobs:
       - name: Build 
         run: npm run build
       - name: "Upload to S3"
-        uses: hkusu/s3-upload-action@v2
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
