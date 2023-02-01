@@ -12,7 +12,7 @@ jobs:
           ref: main
       - uses: actions/setup-node@master
         with:
-          node-version: 16.14.1
+          node-version: 14.15.5
       - name: Install dependencies
         run:  npm install
       - name: Build 
