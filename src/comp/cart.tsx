@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "../css/cart.css";
 import { productInventory } from "../json/products";
 import { products } from "../json/products_inventory";
@@ -12,9 +12,15 @@ function Cart() {
   const { current_cart } = useSelector((state: any) => state && state?.cart);
   const [cartData, setCartData] = useState(current_cart);
 
-  useEffect(() => {
+  const getData = () => {
     dispatchCall(cartType({ current_cart: cartData }));
-  }, [cartData]);
+  };
+
+  const stableHandler = useCallback(getData, [cartData]);
+
+  useEffect(() => {
+    stableHandler();
+  }, [stableHandler]);
 
   const getProductData = (ParaId) => {
     const result = productInventory.find((item) => item.product_id === ParaId);
@@ -23,7 +29,7 @@ function Cart() {
   const getInventoryData = (ParaId): any => {
     let result;
     for (var i in products) {
-      if (products[i].product_id == ParaId) {
+      if (products[i].product_id === ParaId) {
         result = products[i];
         break; //Stop this loop, we found it!
       }

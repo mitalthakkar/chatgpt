@@ -28,31 +28,14 @@
     "@types/react-dom": "17.0.11",
     "@types/react-redux": "^7.1.24",
     "@types/react-router": "5.1.18",
-    "@types/react-router-dom": "5.3.3",
-    "@typescript-eslint/eslint-plugin-tslint": "4.33.0",
-    "@typescript-eslint/parser": "4.33.0"
+    "@types/react-router-dom": "5.3.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint-fix": "eslint . --ext .js,.jsx,.tsx,.ts --fix",
-    "prepare": "husky install",
-    "pre-commit": "npx husky add .husky/pre-commit \"npx lint-staged\""
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint"
-    ],
-    "*.{ts,tsx,js,jsx,css,scss,module.scss,module.css}": "prettier --write"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "prepare": "husky install"
   },
   "babel": {
     "presets": [
